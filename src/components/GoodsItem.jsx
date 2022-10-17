@@ -40,7 +40,7 @@ function GoodsItem(props) {
                         :
                     "waves-effect waves-light light-blue darken-4 btn-small"
                     }><i
-                    className="material-icons left ">local_grocery_store</i>{purchased ? "Купить" : "Добавлено"}
+                    className="material-icons left ">{purchased ? "local_grocery_store" : "check"}</i>{purchased ? "Купить" : "Добавлено"}
                 </button>
                 <span className="price right">{price + ` Руб`}</span>
             </div>

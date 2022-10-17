@@ -1,114 +1,150 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 nav {
-  padding: 0 1.5rem;
+    padding: 0 1.5rem;
 }
 
 .activator {
-  height: 100%;
-}
- #search {
-  background-color: #fff !important;
-}
-
-.search-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  cursor: pointer;
-}
-.radio-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-label {
-  margin-right: 2rem;
-}
-#root {
-  display: flex;
-  flex-direction: column;
-  flex: 1 auto 0;
-}
-.main {
-  height: 100%;
-  }
-
-.goods{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-flow: row;
-  grid-gap: 15px;
-  padding: 2rem;
+    height: 100%;
 }
 
 #search {
-  background-color: #fff !important;
+    background-color: #fff !important;
 }
 
 .search-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
 }
+
 .radio-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
+
 label {
-  margin-right: 2rem;
+    margin-right: 2rem;
 }
+
+#root {
+    display: flex;
+    flex-direction: column;
+    flex: 1 auto 0;
+}
+
+.main {
+    height: 100%;
+}
+
+.goods {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-flow: row;
+    grid-gap: 15px;
+    padding: 2rem;
+}
+
+#search {
+    background-color: #fff !important;
+}
+
+.search-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.radio-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+label {
+    margin-right: 2rem;
+}
+
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
+
 .price {
-  padding-top: 5px;
+    padding-top: 5px;
 }
+
 .cart {
-  position: fixed;
-  right: 2rem;
-  bottom: 2rem;
-  padding: 1rem;
-  border-radius: 10px;
-  z-index: 5;
-  cursor: pointer;
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 5;
+    cursor: pointer;
 }
 
 @media (min-width: 760px) {
-  .cart {
-    top: 5rem;
-    bottom: unset;
-  }
+    .cart {
+        top: 5rem;
+        bottom: unset;
+    }
 }
+
 .basket {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 6;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
+
+@media (min-width: 820px) {
+    .basket {
+        width: 50%;
+    }
+}
+
 .basket-invisible {
-  display: none;
+    display: none;
 }
+
 .basket-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+}
+
+.basket-delete {
+    cursor: pointer;
+    color: #039be5;
+}
+
+.basket-quantity {
+    vertical-align: middle;
+    color: #039be5;
+    cursor: pointer;
+}
+
+.basket-plus {
+    font-size: 1.5rem;
 }

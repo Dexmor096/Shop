@@ -4,6 +4,7 @@ import GoodsItem from "./GoodsItem";
 function GoodsList(props) {
     const {
         goods = [],
+        purchased,
         addToCart = Function.prototype,
         visibleCart = Function.prototype
     } = props;
@@ -18,6 +19,7 @@ function GoodsList(props) {
                 <GoodsItem key={item.id} {...item}
                            addToCart={addToCart}
                            visibleCart={visibleCart}
+                           purchased={purchased}
                 />
             ))
             }

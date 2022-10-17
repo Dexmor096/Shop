@@ -15,7 +15,7 @@ function Shop() {
     useEffect(function getGoods() {
         fetch(API_URL, {
                 headers: {
-                    'Authorization': "4b31a894-2575028d-73c30818-252b222d"
+                    'Authorization': API_KEY
                 }
             }
         )
@@ -50,6 +50,40 @@ function Shop() {
         }
     }
 
+    const removeOnCart = (itemId) => {
+        const newOrder = order.filter(item => item.id !== itemId)
+        setOrder(newOrder)
+    }
+
+    const quantityAdd = (itemId) => {
+        const newOrder = order.map((orderItem) => {
+            if (orderItem.id === itemId) {
+                const newQuantity = orderItem.quantity + 1;
+             return {
+                ...orderItem,
+                quantity: newQuantity,
+            };
+        } else {
+            return orderItem
+            }
+        });
+        setOrder(newOrder)
+    }
+    const quantityRemove = (itemId) => {
+        const newOrder = order.map((orderItem) => {
+            if (orderItem.id === itemId) {
+                const newQuantity = orderItem.quantity - 1;
+             return {
+                ...orderItem,
+                quantity: newQuantity > 0 ? newQuantity : 1,
+            };
+        } else {
+            return orderItem
+            }
+        });
+        setOrder(newOrder)
+    }
+
     const visibleCart = () => {
         setVisible(!visible)
     }
@@ -59,11 +93,17 @@ function Shop() {
                   visibleCart={visibleCart}
             />
             {
-                loading ? <Preloader/> : <GoodsList goods={goods} addToCart={addToCart} visibleCart={visibleCart}/>
+                loading ? <Preloader/> : <GoodsList goods={goods} addToCart={addToCart} />
             }
-            <Basket visible={visible}
-                    visibleCart={visibleCart}
-            />
+            {
+                visible && <Basket
+                    order={order}
+                    quantityAdd={quantityAdd}
+                    quantityRemove={quantityRemove}
+                    quantity={order.length}
+                    removeOnCart={removeOnCart}
+                    visibleCart={visibleCart} />
+            }
         </div>
     )
 }
