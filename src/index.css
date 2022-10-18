@@ -92,7 +92,7 @@ label {
 
 .cart {
     position: fixed;
-    right: 2rem;
+    right: 1rem;
     bottom: 2rem;
     padding: 1rem;
     border-radius: 10px;
@@ -147,4 +147,27 @@ label {
 
 .basket-plus {
     font-size: 1.5rem;
+}
+
+.total-price {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+.toast-effect{
+    position: absolute;
+    top: 3rem !important;
+}
+.toast {
+    background-color: rgba(0, 0, 0, .5)!important;
+    animation: fade-out 300ms ease-in-out;
+}
+@keyframes fade-out {
+    0% {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
 }

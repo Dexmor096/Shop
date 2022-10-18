@@ -4,6 +4,7 @@ import Preloader from "../components/Preloader";
 import GoodsList from "../components/GoodsList";
 import Cart from "../components/Cart"
 import Basket from "../components/Basket";
+import Alert from "../components/Alert"
 
 
 function Shop() {
@@ -11,6 +12,7 @@ function Shop() {
     const [loading, setLoading] = useState(true)
     const [order, setOrder] = useState([]) //заказ в корзине
     const [visible, setVisible] = useState(false)
+    const [alertName, setAlertName] = useState('')
 
     useEffect(function getGoods() {
         fetch(API_URL, {
@@ -48,6 +50,7 @@ function Shop() {
             })
             setOrder(newOrder)
         }
+            setAlertName(item.name)
     }
 
     const removeOnCart = (itemId) => {
@@ -69,6 +72,7 @@ function Shop() {
         });
         setOrder(newOrder)
     }
+
     const quantityRemove = (itemId) => {
         const newOrder = order.map((orderItem) => {
             if (orderItem.id === itemId) {
@@ -87,6 +91,10 @@ function Shop() {
     const visibleCart = () => {
         setVisible(!visible)
     }
+
+    const removeAlert = () => {
+        setAlertName('')
+    }
     return (
         <div className="container content main">
             <Cart quantity={order.length}
@@ -103,6 +111,9 @@ function Shop() {
                     quantity={order.length}
                     removeOnCart={removeOnCart}
                     visibleCart={visibleCart} />
+            }
+            {
+                alertName ? <Alert name={alertName} removeAlert={removeAlert}/> : null
             }
         </div>
     )
